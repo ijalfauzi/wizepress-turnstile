@@ -26,3 +26,5 @@ define('WZP_TURNSTILE_PLUGIN_URL', plugin_dir_url(__FILE__));
 require_once WZP_TURNSTILE_PLUGIN_DIR . 'includes/settings-page.php';
 require_once WZP_TURNSTILE_PLUGIN_DIR . 'includes/render-turnstile.php';
 require_once WZP_TURNSTILE_PLUGIN_DIR . 'includes/verify-turnstile.php';
+require_once WZP_TURNSTILE_PLUGIN_DIR . 'includes/admin-footer.php';
+
