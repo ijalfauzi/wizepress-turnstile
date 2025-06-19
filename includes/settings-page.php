@@ -21,6 +21,7 @@ add_action('admin_menu', function () {
 add_action('admin_init', function () {
     register_setting('wzp_turnstile_settings', 'wzp_turnstile_site_key');
     register_setting('wzp_turnstile_settings', 'wzp_turnstile_secret_key');
+    register_setting('wzp_turnstile_settings', 'wzp_turnstile_theme');
 });
 
 /**
@@ -46,6 +47,20 @@ function wzp_render_turnstile_settings_page() {
                     <th scope="row"><?php esc_html_e('Secret Key', 'wizepress-turnstile'); ?></th>
                     <td>
                         <input type="text" name="wzp_turnstile_secret_key" class="regular-text" value="<?php echo esc_attr(get_option('wzp_turnstile_secret_key')); ?>" />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><?php esc_html_e('Theme', 'wizepress-turnstile'); ?></th>
+                    <td>
+                        <select name="wzp_turnstile_theme">
+                            <?php
+                            $current = get_option('wzp_turnstile_theme', 'auto');
+                            $themes = ['auto' => 'Auto', 'light' => 'Light', 'dark' => 'Dark'];
+                            foreach ($themes as $value => $label) {
+                                echo '<option value="' . esc_attr($value) . '" ' . selected($current, $value, false) . '>' . esc_html($label) . '</option>';
+                            }
+                            ?>
+                        </select>
                     </td>
                 </tr>
             </table>
