@@ -17,11 +17,13 @@ function wzp_enqueue_turnstile_script() {
  */
 function wzp_render_turnstile_widget() {
     $site_key = get_option('wzp_turnstile_site_key');
+    $theme = get_option('wzp_turnstile_theme', 'auto');
+
     if (!$site_key) {
         return;
     }
 
-    echo '<div class="cf-turnstile" data-sitekey="' . esc_attr($site_key) . '"></div>';
+    echo '<div class="cf-turnstile" data-sitekey="' . esc_attr($site_key) . '" data-theme="' . esc_attr($theme) . '"></div>';
 }
 
 /**
